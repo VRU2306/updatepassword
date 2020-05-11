@@ -1,3 +1,5 @@
-# usePasswordValidationHook
+# how to use 
 
-A simple example of custom react hooks to implement reusable password validation
+npm install
+# npm start
+
