@@ -1,5 +1,5 @@
 import React from "react";
-
+// import ReactDOM from "react-dom";
 
 import "./styles.css";
 
@@ -25,9 +25,9 @@ const usePasswordValidation = initialValue => {
 
 function App() {
     const [
-        EmailError,
-        Email,
-        validateEmail
+        currentPasswordError,
+        currentPassword,
+        validateCurrentPassword
     ] = usePasswordValidation("");
     const [
         newPasswordError,
@@ -41,26 +41,13 @@ function App() {
     ] = usePasswordValidation("");
 
     const allPasswordsSet =
+        currentPassword.length > 0 &&
         newPassword.length > 0 &&
         confirmedPassword.length > 0;
 
     return (
         <div className="App">
             <h1>AthrV-Ed LMS Portal</h1>
-            <div className="formField">
-                <h3>Email</h3>
-                <input
-                    type="Email"
-                    onKeyUp={e => {
-                        validateEmail(e.target.value);
-                    }}
-                    defaultValue={Email}
-                    placeholder="Email"
-                />
-                {!!EmailError && (
-                    <label className="error">EmailError</label>
-                )}
-            </div>
             <div className="formField">
                 <h3>New Password</h3>
                 <input
@@ -102,5 +89,4 @@ function App() {
         </div>
     );
 }
-
 export default App;
